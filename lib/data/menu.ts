@@ -29,7 +29,7 @@ export const menuItems: MenuItem[] = [
     price: 89,
     category: "kava",
     tag: "bestseller",
-    image: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=85",
     imageAlt: "Flat white s latte art v kavárně Svěží",
   },
   {
