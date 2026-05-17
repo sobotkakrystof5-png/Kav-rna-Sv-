@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kavárna Svěží — Web
 
-## Getting Started
+Prémiový web pro pražskou kavárnu Svěží. Next.js 16, TypeScript, Tailwind CSS, Framer Motion.
 
-First, run the development server:
+## Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Jazyk**: TypeScript
+- **Styling**: Tailwind CSS + CSS custom properties
+- **Animace**: Framer Motion + Lenis (smooth scroll)
+- **Fonty**: Fraunces (serif headlines) · Inter (body) · Caveat (handwritten)
+- **Obrázky**: next/image + Unsplash (placeholder — nahradit reálnými fotkami)
+- **Deploy**: Vercel
+
+## Spuštění
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Otevři [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Struktura
 
-To learn more about Next.js, take a look at the following resources:
+```
+/app
+  /page.tsx           ← homepage
+  /nabidka/page.tsx   ← menu
+  /pribeh/page.tsx    ← příběh
+  /kontakt/page.tsx   ← kontakt + formulář
+  /gdpr/page.tsx
+  /sitemap.ts
+  /robots.ts
+  /not-found.tsx
+/components
+  /sections           ← Hero, Intro, MenuSection, USP, Gallery, Reviews, Location, CTA
+  /ui                 ← NavBar, Footer, Button, Badge, LoadingScreen, CookieBanner, ScrollProgress
+  /animations         ← TextReveal, FadeIn, ParallaxImage, MagneticButton
+  /providers          ← SmoothScrollProvider (Lenis)
+/lib
+  /data               ← menu.ts, reviews.ts, nav.ts
+  /utils.ts
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Před spuštěním v produkci
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Nahraď Unsplash obrázky reálnými fotkami kavárny (ulož do `/public/images`)
+2. Aktualizuj adresu, telefon, email v `/lib/data/nav.ts`
+3. Nastav `siteUrl` v `/app/layout.tsx` na skutečnou doménu
+4. Přidej `og-image.jpg` (1200×630 px) do `/public/`
+5. Zapoj Google Analytics / Tag Manager
+6. Aktivuj Google Maps Embed API pro mapu
 
-## Deploy on Vercel
+## Deploy na Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npx vercel
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Nebo propoj GitHub repozitář přímo v [vercel.com](https://vercel.com).
